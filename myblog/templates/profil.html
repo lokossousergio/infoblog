@@ -1,0 +1,485 @@
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="{% static 'css/acceuils.css' %}">
+     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-free-6.6.0-web/css/all.css' %}">
+
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+<style>
+
+  body {
+    margin: 0;
+    padding: 0;
+
+    background-color: rgb(250, 250, 250);
+  }
+
+  /* Header fixé en haut */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgb(251, 248, 248);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  /* Espace sous la navbar pour le contenu */
+  body::before {
+    content: "";
+    display: block;
+    height: 70px; /* même hauteur que la navbar */
+  }
+
+  .navbar {
+    background-color:rgb(250, 250, 250)!important;
+    padding: 5px
+  }
+
+  /* Style du bouton burger */
+  .navbar-toggler {
+    border: none;
+    background: none;
+    padding: 6px 10px;
+  }
+
+  .navbar-toggler i {
+    font-size: 1.8rem;
+    color: black;
+  }
+
+  /* Alignement du contenu */
+  .s {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .s ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+  }
+
+  .s ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+
+  /* Effet hover */
+  .s ul li a:hover {
+    color: rgb(97, 97, 97);
+    border-bottom: 2px solid #008C99;;
+    padding-bottom: 5px;
+    transition: 0.2s ease-in;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .navbar-collapse {
+      background-color: rgb(251, 248, 248);
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .s {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    /* Les éléments du menu deviennent verticaux */
+    .s ul {
+      flex-direction: column;
+      width: 100%;
+      gap: 10px;
+    }
+
+    .s ul li {
+      width: 100%;
+    }
+
+    .s ul li a {
+      display: block;
+      width: 100%;
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .s form {
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+
+
+
+
+<div class="header">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+
+      <!-- Logo -->
+      <a class="navbar-brand" href="#" style="color:rgb(4, 4, 4); font-weight:bold;"><img src="/static/images/1000061806-removebg-preview.png" alt="" width="100" height="100"></a>
+
+      <!-- Bouton toggle -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Contenu -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="ms-auto s">
+          <!-- Formulaire de recherche -->
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+          </form>
+
+          <!-- Liens du menu -->
+          <ul class="menus">
+               <li><a href="{%  url 'acceuils'%}">  <i class="fas fa-home"></i>  <b>Acceuil</b></a></li>
+            <li><a href="{%  url 'profils_user'%}">  <i class="fas fa-user"></i> <b>Profil</b></a></li>
+         
+            <li><a href="{% url 'myarticle' %}">  <i class="fas fa-box-open"></i><b>Mes articles</b></a></li>
+            <li><a href="{% url 'publier' %}">  <i class="fas fa-edit"></i><b>Publier un article</b></a></li>
+        <li> <a href="{% url 'Deconexion'%}"> <i class="fa-solid fa-right-from-bracket"></i>   <b>Déconnexion</b> </a>  </li>
+            
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+</div>
+
+<style>
+
+
+
+  .navbar-brand img{
+    text-align: start;
+    
+  }
+  .menus{
+    display: flex; gap:20px
+  }
+  .menus  a:hover{
+    color:black;
+  }
+  .d-flex  .btn{
+   
+border: none;
+color: #008C99;
+  }
+  .d-flex  .btn:hover{
+    color: white;
+border: none;
+background-color: #008C99;
+  }
+  i{
+    color: #008C99;
+  }
+
+ 
+    .d-flex   .form-control{
+      border: 1px solid #008C99;;
+    }
+
+.d-flex   .form-control:focus{
+box-shadow: none;
+     
+      border: 1px solid #008C99;;
+  }
+.sous-articles button i {
+    color: rgb(122, 122, 122);
+}
+.info i{
+  color:  #008C99;;
+  };
+
+</style>
+
+
+<br>
+<br>
+<br>
+  <div class="profil-container   shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+
+
+    <div class="photo-section">
+<img src="{{user.photo_user.url }}" alt="" style="border-radius: 50%;" width="50" height="50"> <br>
+
+    {% if myid == user.id  %}
+  <a href="{% url 'modifier_tof' id_p=user.id %}" class="">Modifier</a>
+    {%endif%}
+    </div>
+
+    <hr>
+
+    <div class="info">
+      <h3><i class="fa-solid fa-user"></i>  Nom prénom</h3>
+      <p>   {{user.nom_prenom}}</p>
+    </div>
+
+    <hr>
+
+    <div class="info">
+      <h3><i class="fa-solid fa-user"></i>   Nom d'utilisateur</h3>
+      <p>   {{user.username}}</p>
+    </div>
+
+    <hr>
+
+    <div class="info">
+      <h3><i class="fa-solid fa-solid fa-venus-mars"></i> Genre</h3>
+      <p>  {{user.sexe}}</p>
+    </div>
+
+    <hr>
+
+    <div class="info">
+      <h3><i class="fa-solid fa-solid fa-envelope"></i>  E-mail</h3>
+      <p> {{user.mail}}</p>
+    </div>
+
+    <hr>
+
+  </div>
+
+</body>
+</html>
+
+
+
+<div class="modal fade" id="successModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="successModalLabel"> Selectionnez votre image </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body">
+ <form action="{% url 'modifier_tof' id_p=user.id  %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+<div>
+  <input type="file" name="new_tof" id="">
+<input type="submit" value="Modifier"  class="bt">
+</div>
+ </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const pht = {{pht|yesno:'true,false'}}
+
+  if (pht) {
+      document.addEventListener('DOMContentLoaded', function () {
+          var m = new bootstrap.Modal(document.getElementById('successModal'));
+          m.show();
+      });
+  }
+
+</script>
+
+
+
+
+<style>
+
+
+  /* ========================================= */
+/* STYLES GÉNÉRAUX ET CENTRAGE (Pour tous les écrans) */
+/* ========================================= */
+
+.modal-body {
+    /* Utilise Flexbox pour centrer le contenu du formulaire */
+    display: flex;
+    justify-content: center; /* Centre le formulaire horizontalement */
+    align-items: center;
+    padding: 20px; /* Assure un bon espace intérieur */
+}
+
+/* Cible le div qui contient les inputs */
+.modal-body > form > div {
+    display: flex;
+    flex-direction: row; /* Les éléments sont côte à côte par défaut */
+    align-items: center;
+    gap: 15px; /* Espace entre le champ de fichier et le bouton */
+    width: 100%; /* S'assure qu'il prend toute la largeur disponible */
+    max-width: 400px; /* Limite la largeur sur les grands écrans */
+}
+
+/* Style de l'Input de fichier */
+.modal-body input[type="file"] {
+    /* Permet au champ de fichier de prendre la majorité de l'espace */
+    flex-grow: 1; 
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Style du bouton "Modifier" */
+.modal-body .bt {
+    /* Empêche le bouton de se contracter (conserve sa taille) */
+    flex-shrink: 0; 
+    padding: 10px 15px;
+    background-color: #008C99; /* Exemple de couleur d'accent */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ========================================= */
+/* RESPONSIVE : Pour les Téléphones (Empilement vertical) */
+/* ========================================= */
+
+@media (max-width: 500px) {
+    /* Bascule en affichage vertical pour les petits écrans */
+    .modal-body > form > div {
+        flex-direction: column; /* Les éléments s'empilent */
+        align-items: stretch; /* Les éléments s'étirent sur toute la largeur */
+        gap: 10px; /* Réduction de l'espace entre les éléments empilés */
+    }
+
+    .modal-body input[type="file"],
+    .modal-body .bt {
+        width: 100%; /* S'étirent sur toute la largeur disponible */
+        box-sizing: border-box; /* Assure que padding/border sont inclus dans la largeur */
+        margin: 0; /* Suppression des marges inutiles */
+    }
+}
+
+    body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: black;
+  margin: 0;
+  padding: 0;
+
+
+
+
+}
+
+.profil-container {
+  max-width: 50%;
+  margin: 30px auto;
+  padding: 20px;
+
+}
+
+h2 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.photo-section {
+  text-align: center;
+
+}
+.photo-section img {
+  text-align: center;
+  border: 1px solid  #008C99;;
+
+}
+.photo-section a {
+ color: black;
+ text-decoration: none;
+}
+
+.photo-section a:hover {
+ 
+ text-decoration: underline;
+ color: #008C99;
+}
+
+.photo-section img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.modifier {
+  display: block;
+  margin-top: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.info {
+  margin-top: 15px;
+}
+
+.info h3 {
+  margin: 5px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.info p, .info a {
+  margin: 0;
+  font-size: 14px;
+  text-decoration: none;
+  color: black;
+}
+
+hr {
+  margin: 15px 0;
+  border: none;
+  border-top: 1px solid black;
+}
+
+
+
+
+.modal-body .bt{
+       background-color: #008C99;; ;
+color: white;
+width: auto;
+border: none;
+border-radius: 10px;
+    padding: 10px;
+}
+/* Responsive mobile */
+@media (max-width: 600px) {
+  .profil-container {
+      max-width: 80%;
+    padding: 15px;
+  }
+
+  .photo-section img {
+    width: 100px;
+    height: 100px;
+  }
+}
+</style>

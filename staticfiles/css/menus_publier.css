@@ -1,0 +1,336 @@
+*{
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.acceuil{
+text-align: center;
+max-width: 50%;
+margin: 0 auto;
+
+
+}
+
+.navbar{
+     text-decoration: none;
+    align-items: center;
+    max-width: 85%;
+    margin: 0 auto;
+  
+    
+}
+.acceuil a{
+    text-decoration: none;
+}
+.acceuil a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+
+.bt a{
+
+ 
+
+
+    font-size: 20px;
+    color: white;
+}
+.bt{
+      
+    margin-top: 5vh;
+
+border: none;
+border-radius: 10px;
+    padding: 10px;
+}
+
+/* --------------------conexionl------ */
+
+
+form{
+    max-width: 100%;
+    margin:  0 auto;
+
+}
+form input,select{
+   
+}
+
+.mb-3 .bt{
+   width: 40%;
+   background-color: #008C99;;
+   color: white;
+}
+label{
+    color: black;
+}
+
+.head{
+    text-align: center;
+    color:  #008C99;
+    font-size: 18px;
+}
+.p{
+    padding: 20px;
+   width: 100%;
+    border-radius: 10px;
+
+    margin:  0 auto;
+ 
+}
+
+.conexion{
+
+
+    border-radius: 10px;
+
+    margin:  0 auto;
+
+ 
+    background-color: white;
+
+}
+.info{
+    text-align: center;
+}
+.info a{
+    color: ;
+}
+body{
+
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+/* .mb-3 input{
+    box-shadow: none;
+outline: none;
+} */
+
+
+/* ===================== RESPONSIVE AMÉLIORÉ ===================== */
+
+/* Grand écran (≥1200px) */
+@media screen and (min-width: 1200px) {
+    body{
+
+   
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+    .conexion {
+        width: 35%;
+    }
+
+    form input,
+    form select {
+        height: 45px;
+        font-size: 1rem;
+    }
+
+    .btn {
+        width: 25%;
+        font-size: 18px;
+        padding: 14px;
+    }
+}
+
+/* Tablettes (≤992px) */
+@media screen and (max-width: 992px) {
+    body{
+
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+    .conexion {
+        width: 55%;
+        padding: 25px;
+    }
+
+    form input,
+    form select {
+        height: 48px;
+        font-size: 1.05rem;
+    }
+
+    .btn {
+        width: 45%;
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    form .btn {
+        width: 60%;
+    }
+
+    .head h1 {
+        font-size: 2rem;
+    }
+
+    .p2 {
+        font-size: 1rem;
+    }
+}
+
+/* Mobiles et petites tablettes (≤768px) */
+@media screen and (max-width: 768px) {
+    body{
+
+   
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+      
+    }
+
+    .conexion {
+        width: 100%;
+        padding: 250px;
+        margin: 8vh auto;
+    }
+
+    form input,
+    form select {
+        height: 50px;
+        font-size: 1.1rem;
+    }
+
+    .bt {
+        width: 50%;
+        font-size: 18px;
+        padding: 14px;
+    }
+
+    form .btn {
+        width: 50%;
+    }
+
+    .head h1 {
+        font-size: 1.8rem;
+    }
+
+    .p2 {
+        font-size: 1rem;
+    }
+}
+
+/* Téléphones (≤576px) */
+@media screen and (max-width: 576px) {
+    body{
+
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+    .conexion {
+        width: 95%;
+        padding: 25px;
+        margin-top: 5vh;
+    }
+
+    .head h1 {
+        font-size: 1.5rem;
+    }
+
+    .p2 {
+        font-size: 0.95rem;
+    }
+
+    form input,
+    form select {
+        height: 52px;
+        font-size: 1rem;
+    }
+
+    label {
+        font-size: 0.95rem;
+    }
+
+    .bt {
+        width: 50%;
+        font-size: 17px;
+        padding: 13px;
+    }
+
+    form .bt{
+        width: 50%;
+    }
+
+    .info small {
+        font-size: 0.9rem;
+    }
+}
+
+/* Très petits téléphones (≤400px) */
+@media screen and (max-width: 400px) {
+    body{
+
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+    .conexion {
+        width: 100%;
+        padding: 20px;
+        margin: 0;
+    }
+
+    .head h1 {
+        font-size: 1.3rem;
+    }
+
+    form input,
+    form select {
+        height: 55px;
+        font-size: 1rem;
+    }
+
+    .bt {
+        width: 50%;
+        font-size: 16px;
+        padding: 14px;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    .info small {
+        font-size: 0.85rem;
+    }
+}
+
+
+    .mb-3 .bt:focus{
+      box-shadow: none;
+     
+      border: 2px solid black;
+    }
+
+  .mb-3 .form-control:focus{
+box-shadow: none;
+     
+      border: 1px solid black;
+  }

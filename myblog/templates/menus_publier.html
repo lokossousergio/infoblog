@@ -1,0 +1,276 @@
+
+
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="{% static 'css/menus_publier.css' %}">
+     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-free-6.6.0-web/css/all.css' %}">
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+  
+  
+<style>
+
+  body {
+    margin: 0;
+    padding: 0;
+
+    background-color: rgb(250, 250, 250);
+  }
+
+  /* Header fixé en haut */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgb(251, 248, 248);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  /* Espace sous la navbar pour le contenu */
+  body::before {
+    content: "";
+    display: block;
+    height: 70px; /* même hauteur que la navbar */
+  }
+
+  .navbar {
+    background-color:rgb(250, 250, 250)!important;
+    padding: 5px
+  }
+
+  /* Style du bouton burger */
+  .navbar-toggler {
+    border: none;
+    background: none;
+    padding: 6px 10px;
+  }
+
+  .navbar-toggler i {
+    font-size: 1.8rem;
+    color: black;
+  }
+
+  /* Alignement du contenu */
+  .s {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .s ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+  }
+
+  .s ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+
+  /* Effet hover */
+  .s ul li a:hover {
+    color: rgb(97, 97, 97);
+    border-bottom: 2px solid #008C99;;
+    padding-bottom: 5px;
+    transition: 0.2s ease-in;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .navbar-collapse {
+      background-color: rgb(251, 248, 248);
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .s {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    /* Les éléments du menu deviennent verticaux */
+    .s ul {
+      flex-direction: column;
+      width: 100%;
+      gap: 10px;
+    }
+
+    .s ul li {
+      width: 100%;
+    }
+
+    .s ul li a {
+      display: block;
+      width: 100%;
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .s form {
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+
+
+
+
+<div class="header">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+
+      <!-- Logo -->
+      <a class="navbar-brand" href="#" style="color:rgb(4, 4, 4); font-weight:bold;"><img src="/static/images/1000061806-removebg-preview.png" alt="" width="100" height="100"></a>
+
+      <!-- Bouton toggle -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Contenu -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="ms-auto s">
+          <!-- Formulaire de recherche -->
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+          </form>
+
+          <!-- Liens du menu -->
+           <!-- Liens du menu -->
+          <ul class="menus">
+               <li><a href="{%  url 'acceuils'%}">  <i class="fas fa-home"></i>  <b>Acceuil</b></a></li>
+            <li><a href="{%  url 'profils_user'%}">  <i class="fas fa-user"></i> <b>Profil</b></a></li>
+         
+            <li><a href="{% url 'myarticle' %}">  <i class="fas fa-box-open"></i><b>Mes articles</b></a></li>
+            <li><a href="{% url 'publier' %}">  <i class="fas fa-edit"></i><b>Publier un article</b></a></li>
+        <li> <a href="{% url 'Deconexion'%}"> <i class="fa-solid fa-right-from-bracket"></i>   <b>Déconnexion</b> </a>  </li>
+            
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+</div>
+
+<style>
+
+  i{
+    color: #008C99;
+  }
+
+ 
+
+  .navbar-brand img{
+    text-align: start;
+    
+  }
+  .menus{
+    display: flex; gap:20px
+  }
+  .menus  a:hover{
+    color:black;
+  }
+  .d-flex  .btn{
+   
+border: none;
+color: #008C99;
+  }
+  .d-flex  .btn:hover{
+    color: white;
+border: none;
+background-color: #008C99;
+  }
+
+ 
+    .d-flex   .form-control{
+      border: 1px solid #008C99;;
+    }
+
+.d-flex   .form-control:focus{
+box-shadow: none;
+     
+      border: 1px solid #008C99;;
+  }
+.sous-articles button i {
+    color: rgb(122, 122, 122);
+}
+
+</style>
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="p">
+
+
+
+  
+    <div class="conexion    shadow p-3 mb-5 bg-body-tertiary" >
+
+
+<form action="{% url 'publier' %}" method="post" enctype="multipart/form-data" aria-autocomplete="none">
+
+<div class="head"><strong>Publier votre article</strong>
+
+</div>
+<br>
+  {% csrf_token %}
+                     <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Titre de votre article</label>
+  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Entrer votre nom" name="titre" required>
+</div>
+
+
+
+
+              <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Ajouter une image à l'article</label>
+  <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Entrer une photo lié a votre article" name="photo" required>
+</div>
+
+
+
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">A propos de votre article</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Parler de votre article" name="details" required minlength="200"></textarea>
+</div>
+
+
+<center>   <div class="mb-3">   <button type="submit" class="bt">Publier</button>  </div> </center>
+</form>
+
+
+</div>
+
+
+</div>
