@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <link rel="stylesheet" href="{% static 'css/acceuils.css' %}">
@@ -275,7 +276,7 @@ i{
 
 
 <div class="about">
-  <p class="p1" >  {{u.details|truncatewords:30 }} {% if u.details|length > 30 %} <a href="{% url   'article' id_article=u.id %}">Voir plus</a>  {%endif%}</p>
+  <p class="p1" >  {{u.details|truncatechars:200 }} {% if u.details|length > 200 %} <a href="{% url   'article' id_article=u.id %}">Voir plus</a>  {%endif%}</p>
    <div class="sous-part1" id="s1">
 
 

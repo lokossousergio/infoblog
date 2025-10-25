@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <link rel="stylesheet" href="{% static 'css/menus_publier.css' %}">
@@ -14,6 +15,8 @@
     <link rel="stylesheet" href="{% static 'css/fontawesome-free-6.6.0-web/css/all.css' %}">
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <title>Document</title>
+
+    
 </head>
 <body>
   
@@ -238,7 +241,7 @@ box-shadow: none;
     <div class="conexion    shadow p-3 mb-5 bg-body-tertiary" >
 
 
-<form action="{% url 'publier' %}" method="post" enctype="multipart/form-data" aria-autocomplete="none">
+<form action="{% url 'publier' %}" method="post" enctype="multipart/form-data"  autocomplete="off">
 
 <div class="head"><strong>Publier votre article</strong>
 

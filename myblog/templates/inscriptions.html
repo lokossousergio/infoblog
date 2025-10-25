@@ -22,7 +22,7 @@
 <div class="conexion  shadow p-3 mb-5 bg-body-tertiary">
 
 
-<form action="{% url 'inscription'%}" method="post" id="form" autocomplete="off">
+<form action="{% url 'inscription'%}" method="post" autocomplete="off" aria-autocomplete="none" id="form" >
 
 <div class="head"><h1><img src="/static/images/1000061806-removebg-preview.png" alt="" width="150" height="150"></h1>
  <p style="margin-top: -6vh; font-weight: bold; ">Bienvenue sur info blog créer votre compte</p>
@@ -60,7 +60,7 @@
 </div>
 
 <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Address mail</label>
+  <label for="exampleFormControlInput1" class="form-label">Adress mail</label>
   <input type="email" class="form-control" id="champs" placeholder="Entrer votre mail" name="mail" required>
   <div style="height: 1.0vh;"><div class="invalid-feedback" id="msg">   <i class="fa-solid fa-triangle-exclamation"></i>  champ e-mail invalide</div></div>
 </div>
@@ -76,10 +76,10 @@
 
 
 
-<center>   <div class="mb-3">   <button type="submit" class="bt" id="btn">S'inscrire</button>  </div> </center>
+<center>   <div class="mb-3">   <button type="submit" class="bt" id="bte">    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="load" style="display:none">  </span>  S'inscrire</button>  </div> </center>
 </form>
 
-<div class="info"><small>veuillez vous <a href="{% url 'conexion' %}">connecter</a> si vous avez déja un compte</small></div>
+<div class="info"><small>Déja un compte ?<a href="{% url 'conexion' %}">  connectez-vous</a></small></div>
 </div>
 
 
@@ -115,6 +115,9 @@ const slt=document.getElementById('slt')
 const sltm=document.getElementById('sltm')
 const form=document.getElementById('form')
 
+const bt=document.getElementById("bte")
+
+  const load=document.getElementById("load")
 
 element[0].addEventListener('input', function(){
 
@@ -202,7 +205,7 @@ form.addEventListener("submit", function(event){
   const elementvalue2=element[2].value.trim()
   const elementvalue3=element[3].value.trim()
 
-
+load.style.display="inline-block"
 if( (/^[A-Za-z0-9]+$/.test(elementvalue0) )    | (!(/^[A-Za-z0-9]+$/.test(elementvalue1)))  | (!(elementvalue3 !=="")) |(!(/^[a-zA-Z0-9]+@gmail\.com$/.test(elementvalue2))) ){
 
 

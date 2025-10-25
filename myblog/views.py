@@ -12,11 +12,8 @@ from django.http import HttpResponse, JsonResponse
 
 from django.views.decorators.cache import never_cache
 
-def ma_vue(request):
-    ip = request.META.get("REMOTE_ADDR")
-    print("Nouvelle requête depuis :", ip)
-    return HttpResponse("Hello")
 
+@never_cache
 def conexion(request):
 
     return render(request,"conexion.html")
@@ -33,7 +30,7 @@ def conexion(request):
 
 # -------------------ROUTE POUR GERER LINSCRIPTION
 
-
+@never_cache
 def inscription(request):
 
     if request.method=="POST":
@@ -67,7 +64,7 @@ def inscription(request):
 
 
 # -------------------ROUTE POUR GERER LA CONEXION
-
+@never_cache
 def conexion(request):
        if request.method=="POST":
            nom=request.POST.get("nom", '' ).strip()
@@ -96,6 +93,8 @@ def conexion(request):
 
 
 # ----------------------------------
+
+@never_cache
 def publier(request):
     user_id=request.session.get("user_id")
     user= utilisateur.objects.get(id=user_id)
@@ -161,6 +160,7 @@ def acceuils(request):
      
 #  ------------------------------PAGE ARTICLE DETAILS ET commentaires    
      
+@never_cache
 def article(request,id_article):
      
      request.session["id_article"]=id_article  #id_article stocké en session
@@ -267,6 +267,7 @@ def supprimer(request,id_cmt):
 
   
 #modification dun commentaire par le comentataire lui meme
+@never_cache
 def modifier (request,id_cmt):
      id_article=request.session.get("id_article")
      
@@ -317,6 +318,7 @@ def myarticle(request):
      
      
 # -------------------ROUTE POUR GERER LE PROFILS DE TOUTS ceux qui POSTE 
+@never_cache
 def profils(request,id):
     user_id=request.session.get("user_id")
     user= utilisateur.objects.get(id=id)
@@ -325,6 +327,7 @@ def profils(request,id):
     return render(request, 'profil.html',{"user":user  ,"myid":user_id})
      
 # -------------------ROUTE POUR GERER LE PROFILS user
+@never_cache
 def profils_user(request):
     user_id=request.session.get("user_id")
     user= utilisateur.objects.get(id=user_id)
@@ -336,7 +339,7 @@ def profils_user(request):
 
 
 #------------------------ GESTION DES POST PAR LES POSTEURS SUPPRESSION ET MODIFICATION 
-
+@never_cache
 def supprimer_article(request,id_article):
      articles.objects.filter(id=id_article).delete()
      messages.info(request, " ✅Votre article a été supprimer avec succès")
@@ -370,7 +373,7 @@ def modifier_tof(request, id_p):
 
 #----------------------------- GESTION DES LIKES ET NO LIKE
 
-
+@never_cache
 def Deconexion(request):
      request.session.flush()
 

@@ -281,7 +281,7 @@ box-shadow: none;
   </div>
 
 <div class="about">
-  <p class="p1" >  {{u.details|truncatewords:20 }} {% if u.details|length > 30 %} <a href="{% url   'article' id_article=u.id %}">Voir plus</a>  {%endif%}</p>
+  <p class="p1" >  {{u.details|truncatechars:200 }} {% if u.details|length > 200 %} <a href="{% url   'article' id_article=u.id %}">Voir plus</a>  {%endif%}</p>
 </div>
    <div class="sous-part1" id="s1">
 

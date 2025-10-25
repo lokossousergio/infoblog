@@ -19,11 +19,12 @@
 
 
 
+
 <div class="conexion   shadow p-3 mb-5 bg-body-tertiary" >
 
   
 
-<form action="" method="post" autocomplete="off">
+<form action="" method="post" autocomplete="off" id="form">
 {% csrf_token%}
 <div class="head"><h1><img src="/static/images/1000061806-removebg-preview.png" alt="" width="150" height="150"></h1>
  
@@ -55,10 +56,11 @@
 
 </div>
 
-<center>   <div class="mb-3">   <button type="submit" class="bt">Connexion</button>  </div> </center>
+<center>   <div class="mb-3">   <button type="submit" class="bt" id="btn">   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="load" style="display:none">  </span>
+    Connexion</button>  </div> </center>
 </form>
 
-<div class="info"><small>veuillez vous <a href="{% url 'inscription' %}">inscrire</a> si vous n'avez pas de compte</small></div>
+<div class="info"><small>Pas de compte ? <a href="{% url 'inscription' %}">inscrivez-vous</a></small></div>
 </div>
 
 
@@ -88,6 +90,11 @@
 <script>
 const element= document.querySelectorAll('[id="champs"]')
 const msg= document.querySelectorAll('[id="msg"]')
+
+const bt=document.getElementById("bte")
+
+  const load=document.getElementById("load")
+  const form=document.getElementById("form")
 
 element[0].addEventListener('input',function(){
 
@@ -135,7 +142,11 @@ if(elementvalue2 === ""){
       });
   }
 
+  form.addEventListener('submit' ,function(){
+load.style.display="inline-block"
 
+
+  })
 
 </script>
 
