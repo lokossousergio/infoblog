@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-xcus+h#+5^_4a&bco_knztshtl*sim-@0b^$(2$1oa=5m=uq_3
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
+ALLOWED_HOSTS = ['production-web-d7daf.up.railway.app']
 
-ALLOWED_HOSTS = ['*']
 DEBUG = False
 
 STATIC_URL = '/static/'
