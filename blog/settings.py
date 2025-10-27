@@ -33,11 +33,10 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'   # note le / au lieu de os.path.join
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
+MEDIA_ROOT = BASE_DIR / "media"
 
 
 # Application definition
@@ -133,8 +132,6 @@ USE_TZ = False
 
 
 
-STATIC_URL = '/static/'
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -142,10 +139,6 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
-
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR ,'media')
 
 
 from django.contrib.messages import constants as messages
