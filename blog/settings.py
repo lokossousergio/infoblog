@@ -28,12 +28,15 @@ SECRET_KEY = 'django-insecure-xcus+h#+5^_4a&bco_knztshtl*sim-@0b^$(2$1oa=5m=uq_3
 
 
 
+from pathlib import Path
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = '/static/'
-#
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = BASE_DIR / 'staticfiles'   # note le / au lieu de os.path.join
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 
