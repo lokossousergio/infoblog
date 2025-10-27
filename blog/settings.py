@@ -26,11 +26,7 @@ SECRET_KEY = 'django-insecure-xcus+h#+5^_4a&bco_knztshtl*sim-@0b^$(2$1oa=5m=uq_3
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
-ALLOWED_HOSTS = ['*']
 
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # Application definition
@@ -148,13 +144,19 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-STATIC_URL = '/static/'
+DEBUG = False
+ALLOWED_HOSTS = ['*']  # ou l'URL Scalingo exacte plus tard
 
+# Fichiers statiques
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'myblog', 'static'),
 ]
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# Media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# CSRF pour Scalingo
+
