@@ -25,11 +25,13 @@ from django.conf.urls.static import static
 
 
 
+from myblog import views  # importer la vue home de ton app
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.conexion, name='conexion'),  # Page d'accueil
     path('myblog/', include('myblog.urls')),
 ]
 

@@ -26,9 +26,8 @@ SECRET_KEY = 'django-insecure-xcus+h#+5^_4a&bco_knztshtl*sim-@0b^$(2$1oa=5m=uq_3
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['production-web-d7daf.up.railway.app']
-
 DEBUG = False
+ALLOWED_HOSTS = ['*']
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
@@ -73,6 +72,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'blog.wsgi.application'
 
