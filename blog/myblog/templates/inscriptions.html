@@ -1,0 +1,230 @@
+
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-free-6.6.0-web/css/all.css' %}">
+       <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+ 
+    <title>Document</title>
+</head>
+<body>
+
+
+
+<div class="conexion  shadow p-3 mb-5 bg-body-tertiary">
+
+
+<form action="{% url 'inscription'%}" method="post" autocomplete="off" aria-autocomplete="none" id="form" >
+
+<div class="head"><h1><img src="/static/images/1000061806-removebg-preview.png" alt="" width="150" height="150"></h1>
+ <p style="margin-top: -6vh; font-weight: bold; ">Bienvenue sur info blog créer votre compte</p>
+</div>
+
+  {% csrf_token %}
+              <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Nom et prénom</label>
+  <input type="text" class="form-control" id="champs" placeholder="Entrer votre nom" name="nom" required>
+  <div style="height: 1vh;"><div class="invalid-feedback" id="msg">   <i class="fa-solid fa-triangle-exclamation"></i>  champ nom et prénom obligatoire</div></div>
+</div>
+
+
+
+              <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Nom d'utilisateur</label>
+  <input type="text" class="form-control" id="champs" placeholder="Entrer votre prénom" name="username" required>
+  <div style="height: 1.0vh;"><div class="invalid-feedback" id="msg">   <i class="fa-solid fa-triangle-exclamation"></i>  champ d'utilisateur invalide</div></div>
+</div>
+
+
+
+
+
+        <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Genre</label>
+              <select class="form-select" aria-label="Default select example" name="sexe" required id="slt">
+        
+  <option value="">--selectionner votre genre--</option>
+  <option value="Masculin">Masculin</option>
+  <option value="Féminin">Féminin</option>
+
+</select>
+  <div style="height: 1.0vh;"><div class="invalid-feedback" id="sltm">   <i class="fa-solid fa-triangle-exclamation"></i>  champ genre invalide</div></div>
+</div>
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Adress mail</label>
+  <input type="email" class="form-control" id="champs" placeholder="Entrer votre mail" name="mail" required>
+  <div style="height: 1.0vh;"><div class="invalid-feedback" id="msg">   <i class="fa-solid fa-triangle-exclamation"></i>  champ e-mail invalide</div></div>
+</div>
+
+
+              <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
+  <input type="text" class="form-control" id="champs" placeholder="Entrer votre mot de passe" name="mdp" required>
+  <div style="height: 1.0vh;"><div class="invalid-feedback" id="msg">   <i class="fa-solid fa-triangle-exclamation"></i>  champ mot de passe obligatoire</div></div>
+</div>
+
+
+
+
+
+<center>   <div class="mb-3">   <button type="submit" class="bt" id="bte">    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="load" style="display:none">  </span>  S'inscrire</button>  </div> </center>
+</form>
+
+<div class="info"><small>Déja un compte ?<a href="{% url 'conexion' %}">  connectez-vous</a></small></div>
+</div>
+
+
+
+<!-- Modal de succès -->
+<div class="modal fade" id="successModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="successModalLabel">    ⚠️ {{username}} existe déja</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body">
+  Veuillez entrez un nouveau nom d'utilisateur.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+
+</style>
+
+
+<script>
+  
+const element=document.querySelectorAll('[id="champs"]')
+const message=document.querySelectorAll('[id="msg"]')
+const slt=document.getElementById('slt')
+const sltm=document.getElementById('sltm')
+const form=document.getElementById('form')
+
+const bt=document.getElementById("bte")
+
+  const load=document.getElementById("load")
+
+element[0].addEventListener('input', function(){
+
+const elementvalue1=element[0].value.trim()
+if(/^[A-Za-z0-9]+( [A-Za-z0-9]+)+$/.test(elementvalue1)){
+element[0].style.border='1px solid green'
+  message[0].style.display='none'
+}else 
+if(/^[A-Za-z0-9]+$/.test(elementvalue1)){
+  element[0].style.border='1px solid red'
+  message[0].style.display='block'
+}
+
+
+})
+
+
+
+element[1].addEventListener('input', function(){
+
+const elementvalue1=element[1].value.trim()
+if(/^[A-Za-z0-9]+$/.test(elementvalue1)){
+element[1].style.border='1px solid green'
+  message[1].style.display='none'
+}else 
+{
+  element[1].style.border='1px solid red'
+  message[1].style.display='block'
+}
+
+
+})
+
+
+element[2].addEventListener('input', function(){
+
+const elementvalue1=element[2].value.trim()
+if(/^[a-zA-Z0-9]+@gmail\.com$/.test(elementvalue1)){
+element[2].style.border='1px solid green'
+  message[2].style.display='none'
+}else 
+{
+  element[2].style.border='1px solid red'
+  message[2].style.display='block'
+}
+
+
+})
+
+
+element[3].addEventListener('input', function(){
+
+const elementvalue1=element[3].value.trim()
+if(elementvalue1 !==""){
+element[3].style.border='1px solid green'
+  message[3].style.display='none'
+}else 
+{
+  element[3].style.border='1px solid red'
+  message[3].style.display='block'
+}
+
+
+})
+
+slt.addEventListener("change", function(){
+valeurslt=slt.value.trim()
+
+if(valeurslt===""){
+  slt.style.border="1px solid red"
+  sltm.style.display="block"
+}else{
+    slt.style.border="1px solid green"
+  sltm.style.display="none"
+}
+
+
+
+})
+
+
+form.addEventListener("submit", function(event){
+  const elementvalue0=element[0].value.trim()
+  const elementvalue1=element[1].value.trim()
+  const elementvalue2=element[2].value.trim()
+  const elementvalue3=element[3].value.trim()
+
+load.style.display="inline-block"
+if( (/^[A-Za-z0-9]+$/.test(elementvalue0) )    | (!(/^[A-Za-z0-9]+$/.test(elementvalue1)))  | (!(elementvalue3 !=="")) |(!(/^[a-zA-Z0-9]+@gmail\.com$/.test(elementvalue2))) ){
+
+
+event.preventDefault()
+}
+
+
+
+})
+const messages0= {{messages0|yesno:'true,false'}}
+
+  if (messages0) {
+      document.addEventListener('DOMContentLoaded', function () {
+          var m = new bootstrap.Modal(document.getElementById('successModal'));
+          m.show();
+      });
+  }
+
+
+
+
+</script>
