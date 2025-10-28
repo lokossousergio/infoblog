@@ -30,16 +30,15 @@ DEBUG = False
 # Configuration pour PythonAnywhere
 ALLOWED_HOSTS = []  # Remplacez par votre nom de domaine PythonAnywhere
 
-# Static files configuration
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
 
-# Media files configuration
+
+# STATIC
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# MEDIA
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / "media"
 
 
 # Application definition
