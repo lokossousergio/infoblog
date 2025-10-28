@@ -25,18 +25,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xcus+h#+5^_4a&bco_knztshtl*sim-@0b^$(2$1oa=5m=uq_3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
 
+# Configuration pour PythonAnywhere
+ALLOWED_HOSTS = []  # Remplacez par votre nom de domaine PythonAnywhere
 
-
-from pathlib import Path
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+# Static files configuration
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
+# Media files configuration
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Application definition
