@@ -70,6 +70,8 @@ def conexion(request):
            nom=request.POST.get("nom", '' ).strip()
            mdpe=request.POST.get("mdp",'' ).strip()
 
+        
+
            user=utilisateur.objects.filter(username=nom).first()
 
            if user:

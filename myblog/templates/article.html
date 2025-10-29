@@ -255,7 +255,7 @@ box-shadow: none;
   <br>
   <br>
   <br>
-<a href="{% url 'acceuils' %}" ><i class="fa-solid fa-angle-left" style="font-size: 20px;"></i></a>
+<a href="{% url 'acceuils' %}" ><i class="fa-solid fa-angle-left" style="font-size: 20px;color: #008C99;"></i></a>
 <br>
 <div class="post-header">
   <img class="profile-pic" src="{{ u.autheur.photo_user.url }}" alt="Photo de profil" style="border: 1px solid #008C99;;">
@@ -357,8 +357,8 @@ box-shadow: none;
 <div class="contenus3" >
 
 
-  <div><img src="{{ u.autheur.photo_user.url }}" alt="" width="50" height="50" style="border-radius: 50%; border: 1px solid #008C99"></div> 
-  <div ><p class="p2"><b><a href="{% url 'profils' id=c.user_cmt.id %}"> {{c.user_cmt.username}}  </a>   {%  if id == c.arti.autheur.id %}   <small style="margin-left: 1vh;" style="color: black;">       <i class="fa-solid fa-pencil" style="color: black;"></i>Auteur</small> {%endif%} </b>  <br>     {{c.commantaire}}</p>   <div class="c3"><small>{{c.date_cmt}} </small></div> 
+  <div><img src="{{ c.user_cmt.photo_user.url }}" alt="" width="50" height="50" style="border-radius: 50%; border: 1px solid #008C99"></div> 
+  <div ><p class="p2"><b><a href="{% url 'profils' id=c.user_cmt.id %}"> {{c.user_cmt.username}}  </a>   {%  if c.arti.id == c.user_cmt.id %}   <small style="margin-left: 1vh;" style="color: black;">       <i class="fa-solid fa-pencil" style="color: black;"></i>Auteur</small> {%endif%} </b>  <br>     {{c.commantaire}}</p>   <div class="c3"><small>{{c.date_cmt}} </small></div> 
 
 <!-- ici la supression et la modifiction prend en compte deux parametre si mon id estr egal a lid du user presente dans les commentaire  via la cle id_user_cmt
  ou si lid de lautheur de larticle est egal a mon id sachant -->
